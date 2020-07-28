@@ -1,8 +1,15 @@
 import React from "react";
-import "./App.css";
+import Header from "./Components/Header";
+import CardForm from "../src/Components/Card";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  return <h1>Weather Stuffs</h1>;
+  return (
+    <>
+      <Header />
+      <CardForm />
+    </>
+  );
 }
 
 export default App;
