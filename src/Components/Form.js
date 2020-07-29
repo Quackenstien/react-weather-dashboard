@@ -11,18 +11,26 @@ function InputForm() {
   const [city, setCity] = useState();
   const [name, setName] = useState();
   const [temp, setTemp] = useState();
+  const [humidity, setHumidity] = useState();
+  const [wind, setWind] = useState();
 
   //Fetch function
   const handleFetchData = (e) => {
     e.preventDefault();
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${API_KEY}`
     )
       .then((res) => res.json())
       // .then((data) => console.log(data));
       // console.log(data.name);
       .then((data) =>
-        setName(data.name, console.log(data), setTemp(data.main.temp))
+        setName(
+          data.city.name,
+          console.log(data),
+          setTemp(data.list[0].main.temp),
+          setHumidity(data.list[0].main.humidity),
+          setWind(data.list[0].wind.speed)
+        )
       );
   };
 
@@ -45,7 +53,13 @@ function InputForm() {
         <Card.Body>
           <Card.Title>City: {name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-          <Card.Text>Temp: {temp}</Card.Text>
+          <Card.Text>
+            Temp: {temp}
+            <br />
+            Humidity: {humidity}
+            <br />
+            Wind Speed: {wind}
+          </Card.Text>
         </Card.Body>
 
         <Button id="btn" onClick={handleFetchData} variant="primary">
