@@ -1,1 +1,24 @@
+#btn {
+  margin-top: 10px;
+  border-radius: 0%;
+}
 
+#inputBox {
+  margin: auto;
+  margin-top: 100px;
+}
+
+#outPut {
+  margin: auto;
+  border-radius: 0%;
+}
+
+#Nav {
+  justify-content: center;
+}
+
+#NavText {
+  color: white;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}

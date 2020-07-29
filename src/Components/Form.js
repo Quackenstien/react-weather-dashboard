@@ -32,6 +32,8 @@ function InputForm() {
     <Form>
       <Form.Group>
         <Form.Control
+          id="inputBox"
+          style={{ width: "18rem" }}
           type="text"
           name="city"
           onChange={(e) => setCity(e.target.value)}
@@ -39,15 +41,16 @@ function InputForm() {
         />
       </Form.Group>
 
-      <Button onClick={handleFetchData} variant="primary">
-        Search
-      </Button>
-      <Card style={{ width: "18rem" }}>
+      <Card id="outPut" style={{ width: "18rem" }}>
         <Card.Body>
           <Card.Title>City: {name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
           <Card.Text>Temp: {temp}</Card.Text>
         </Card.Body>
+
+        <Button id="btn" onClick={handleFetchData} variant="primary">
+          Search
+        </Button>
       </Card>
     </Form>
   );
