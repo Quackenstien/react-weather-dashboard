@@ -10,15 +10,31 @@
 
 #outPut {
   margin: auto;
-  border-radius: 0%;
+  background-color: #005768;
 }
 
-#Nav {
+#nav {
   justify-content: center;
 }
 
-#NavText {
+#navText {
   color: white;
   font-weight: bold;
+  font-style: italic;
   font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#appText {
+  margin: auto;
+  color: white;
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#crdColor {
+  background-color: #005768;
+}
+
+body {
+  background-color: #001c24;
 }

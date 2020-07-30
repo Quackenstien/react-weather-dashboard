@@ -50,16 +50,13 @@ function InputForm() {
       </Form.Group>
 
       <Card id="outPut" style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title>City: {name}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-          <Card.Text>
-            Temp: {temp}
-            <br />
-            Humidity: {humidity}
-            <br />
-            Wind Speed: {wind}
-          </Card.Text>
+        <Card.Body id="crdColor">
+          <div id="appText">
+            <h6>City: {name} </h6>
+            <h6>Temp: {temp} </h6>
+            <h6>Humidity: {humidity} </h6>
+            <h6>Wind Speed: {wind} </h6>
+          </div>
         </Card.Body>
 
         <Button id="btn" onClick={handleFetchData} variant="primary">

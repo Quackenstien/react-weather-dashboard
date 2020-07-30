@@ -4,8 +4,8 @@ import Navbar from "react-bootstrap/Navbar";
 function Header() {
   return (
     <>
-      <Navbar bg="dark" id="Nav">
-        <Navbar.Brand id="NavText">Weather Application</Navbar.Brand>
+      <Navbar id="nav">
+        <Navbar.Brand id="navText">Weather</Navbar.Brand>
       </Navbar>
     </>
   );
