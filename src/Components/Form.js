@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+import InputGroup from "react-bootstrap/InputGroup";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function InputForm() {
   //Protected API key
@@ -38,31 +42,88 @@ function InputForm() {
 
   return (
     <Form>
-      <Form.Group>
-        <Form.Control
-          id="inputBox"
-          style={{ width: "18rem" }}
-          type="text"
-          name="city"
-          onChange={(e) => setCity(e.target.value)}
-          placeholder="City"
-        />
-      </Form.Group>
+      <Container>
+        <Row>
+          <Col md={{ span: 4, offset: 4 }}>
+            <InputGroup className="mb-3">
+              <Form.Control
+                type="text"
+                name="city"
+                onChange={(e) => setCity(e.target.value)}
+                placeholder="City"
+              />
+              <InputGroup.Append>
+                <Button onClick={handleFetchData} variant="primary">
+                  Search
+                </Button>
+              </InputGroup.Append>
+            </InputGroup>
+          </Col>
+        </Row>
 
-      <Card id="outPut" style={{ width: "18rem" }}>
-        <Card.Body id="crdColor">
-          <div id="appText">
-            <h6>City: {name} </h6>
-            <h6>Temp: {temp} </h6>
-            <h6>Humidity: {humidity} </h6>
-            <h6>Wind Speed: {wind} </h6>
-          </div>
-        </Card.Body>
-
-        <Button id="btn" onClick={handleFetchData} variant="primary">
-          Search
-        </Button>
-      </Card>
+        <Row>
+          <Col md={2} id="column">
+            <Card id="outPut">
+              <Card.Body id="crdColor">
+                <div id="appText">
+                  <h6>City: {name} </h6>
+                  <h6>Temp: {temp} </h6>
+                  <h6>Humidity: {humidity} </h6>
+                  <h6>Wind Speed: {wind} </h6>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={2} id="column">
+            <Card id="outPut">
+              <Card.Body id="crdColor">
+                <div id="appText">
+                  <h6>City: {name} </h6>
+                  <h6>Temp: {temp} </h6>
+                  <h6>Humidity: {humidity} </h6>
+                  <h6>Wind Speed: {wind} </h6>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={2} id="column">
+            <Card id="outPut">
+              <Card.Body id="crdColor">
+                <div id="appText">
+                  <h6>City: {name} </h6>
+                  <h6>Temp: {temp} </h6>
+                  <h6>Humidity: {humidity} </h6>
+                  <h6>Wind Speed: {wind} </h6>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={2} id="column">
+            <Card id="outPut">
+              <Card.Body id="crdColor">
+                <div id="appText">
+                  <h6>City: {name} </h6>
+                  <h6>Temp: {temp} </h6>
+                  <h6>Humidity: {humidity} </h6>
+                  <h6>Wind Speed: {wind} </h6>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={2} id="column">
+            <Card id="outPut">
+              <Card.Body id="crdColor">
+                <div id="appText">
+                  <h6>City: {name} </h6>
+                  <h6>Temp: {temp} </h6>
+                  <h6>Humidity: {humidity} </h6>
+                  <h6>Wind Speed: {wind} </h6>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </Form>
   );
 }
