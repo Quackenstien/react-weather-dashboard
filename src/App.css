@@ -1,6 +1,7 @@
 #outPut {
   margin: auto;
   background-color: #005768;
+  height: 500px;
 }
 
 #nav {
@@ -15,7 +16,7 @@
 }
 
 #appText {
-  margin: auto;
+  text-align: center;
   color: white;
   font-style: italic;
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -32,4 +33,32 @@ body {
 #column {
   margin-bottom: 10px;
   margin-right: auto;
+}
+
+.city {
+  font-size: 50px;
+}
+
+.temp {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.hum {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.wind {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.icon {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
 }

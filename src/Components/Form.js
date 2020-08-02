@@ -17,25 +17,29 @@ function InputForm() {
   const [temp, setTemp] = useState();
   const [humidity, setHumidity] = useState();
   const [wind, setWind] = useState();
+  const [icon, setIcon] = useState();
+  const [des, setDes] = useState();
 
   //Fetch function
   const handleFetchData = (e) => {
     e.preventDefault();
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`
     )
       .then((res) => res.json())
       // .then((data) => console.log(data));
       // console.log(data.name);
-      .then((data) =>
-        setName(
-          data.city.name,
-          console.log(data),
-          setTemp(data.list[0].main.temp),
-          setHumidity(data.list[0].main.humidity),
-          setWind(data.list[0].wind.speed)
-        )
-      );
+      .then((data) => {
+        setName(data.name + ", " + data.sys.country);
+        setTemp(data.main.temp + "° F");
+        setHumidity(data.main.humidity + "% Humidity");
+        setWind(data.wind.speed + " MPH Winds");
+        setIcon(
+          `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+        );
+        setDes(data.weather[0].main);
+        console.log(data);
+      });
   };
 
   //Need to set up input field to search for specific params
@@ -53,7 +57,11 @@ function InputForm() {
                 placeholder="City"
               />
               <InputGroup.Append>
-                <Button onClick={handleFetchData} variant="primary">
+                <Button
+                  onClick={handleFetchData}
+                  type="submit"
+                  variant="primary"
+                >
                   Search
                 </Button>
               </InputGroup.Append>
@@ -62,62 +70,19 @@ function InputForm() {
         </Row>
 
         <Row>
-          <Col md={2} id="column">
+          <Col md={{ span: 8, offset: 2 }} id="column">
             <Card id="outPut">
               <Card.Body id="crdColor">
                 <div id="appText">
-                  <h6>City: {name} </h6>
-                  <h6>Temp: {temp} </h6>
-                  <h6>Humidity: {humidity} </h6>
-                  <h6>Wind Speed: {wind} </h6>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={2} id="column">
-            <Card id="outPut">
-              <Card.Body id="crdColor">
-                <div id="appText">
-                  <h6>City: {name} </h6>
-                  <h6>Temp: {temp} </h6>
-                  <h6>Humidity: {humidity} </h6>
-                  <h6>Wind Speed: {wind} </h6>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={2} id="column">
-            <Card id="outPut">
-              <Card.Body id="crdColor">
-                <div id="appText">
-                  <h6>City: {name} </h6>
-                  <h6>Temp: {temp} </h6>
-                  <h6>Humidity: {humidity} </h6>
-                  <h6>Wind Speed: {wind} </h6>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={2} id="column">
-            <Card id="outPut">
-              <Card.Body id="crdColor">
-                <div id="appText">
-                  <h6>City: {name} </h6>
-                  <h6>Temp: {temp} </h6>
-                  <h6>Humidity: {humidity} </h6>
-                  <h6>Wind Speed: {wind} </h6>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={2} id="column">
-            <Card id="outPut">
-              <Card.Body id="crdColor">
-                <div id="appText">
-                  <h6>City: {name} </h6>
-                  <h6>Temp: {temp} </h6>
-                  <h6>Humidity: {humidity} </h6>
-                  <h6>Wind Speed: {wind} </h6>
+                  <h6 className="city">{name}</h6>
+                  <h6 className="temp">{temp}</h6>
+                  <h6 className="hum">{humidity}</h6>
+                  <h6 className="wind">{wind}</h6>
+                  <h6 className="icon">
+                    {" "}
+                    {des}
+                    <img src={icon} />
+                  </h6>
                 </div>
               </Card.Body>
             </Card>
